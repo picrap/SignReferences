@@ -8,19 +8,17 @@ namespace AutoStrongName
 {
     using System.Linq;
     using Build;
+    using Utility;
 
     public static class Program
     {
         public static void Main(string[] args)
         {
             var project = new Project(@"..\..\AutoStrongName.csproj");
-            var references = project.GetReferences().ToArray();
-            foreach (var r in references)
+            var unsignedReferences = project.GetReferences(r => !(r.IsSigned ?? true)).ToArray();
+            using (var assemblySigner = new AssemblySigner())
             {
-                var a = r.Resolve();
-                if (a.GlobalAssemblyCache)
-                    continue;
-                var t = a.GetName().GetPublicKey();
+                unsignedReferences.ForAll(assemblySigner.Sign);
             }
         }
     }
