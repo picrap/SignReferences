@@ -53,6 +53,11 @@
   <ItemGroup>
     <Compile Include="Logging\ConsoleLogging.cs" />
     <Compile Include="Logging\ILogging.cs" />
+    <Compile Include="Properties\ProductInfo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductInfo.tt</DependentUpon>
+    </Compile>
     <Compile Include="SignDependencies.cs" />
     <Compile Include="Project\AssemblyReference.cs" />
     <Compile Include="Signing\AssemblySigner.cs" />
@@ -67,14 +72,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="NuGet\AutoStrongName.targets">
+    <None Include="AutoStrongName.nuspec">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoStrongName.tt</DependentUpon>
+    </None>
+    <None Include="NuGet\build\AutoStrongName.targets">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\ProductInfo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ProductInfo.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\ProductInfoValues.tt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
-    <None Include="AutoStrongName.nuspec" />
+    <None Include="AutoStrongName.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AutoStrongName.nuspec</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -91,9 +112,19 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Fody.1.26.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.26.1\build\Fody.targets'))" />
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Clarius.TransformOnBuild.1.1.12\build\Clarius.TransformOnBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Clarius.TransformOnBuild.1.1.12\build\Clarius.TransformOnBuild.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>rem copy "$(TargetPath)" "$(TargetPath).task"</PostBuildEvent>
+    <PostBuildEvent>rem --- NuGet pack ------------------------------------------------------------------------------
+
+if not "$(ConfigurationName)"=="Release" goto :noRelease
+
+copy "$(TargetPath)" "$(TargetDir)AutoStrongName.dll"
+"$(SolutionDir)\.nuget\NuGet.exe" pack "$(ProjectDir)\AutoStrongName.nuspec" -Verbosity detailed -NonInteractive -IncludeReferencedProjects -NonInteractive -Tool -Properties ConfigurationName=$(ConfigurationName) 
+
+:noRelease
+</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\Clarius.TransformOnBuild.1.1.12\build\Clarius.TransformOnBuild.targets" Condition="Exists('..\packages\Clarius.TransformOnBuild.1.1.12\build\Clarius.TransformOnBuild.targets')" />
 </Project>
