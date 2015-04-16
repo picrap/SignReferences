@@ -1,5 +1,11 @@
-﻿namespace AutoStrongName.Signing
+﻿#region AutoStrongName
+// AutoStrongName
+// An automatic tool to presign unsigned dependencies
+// https://github.com/picrap/AutoStrongName
+#endregion
+namespace AutoStrongName.Signing
 {
+    using System.Diagnostics;
     using System.Linq;
     using Logging;
     using Project;
@@ -26,7 +32,7 @@
         /// <param name="projectPath">The project path.</param>
         public void Sign(string projectPath)
         {
-            _logging.Write("Checking project {0}", projectPath);
+            var stopwatch = new Stopwatch();
             var project = new ProjectDefinition(projectPath);
             var unsignedReferences = project.GetReferences(r => !(r.IsSigned ?? true)).ToArray();
             using (var assemblySigner = new AssemblySigner())
@@ -37,6 +43,8 @@
                     assemblySigner.Sign(unsignedReference);
                 }
             }
+            var elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
+            _logging.WriteDebug("AutoStrongName ran in {0}ms", elapsedMilliseconds);
         }
     }
 }
