@@ -10,8 +10,9 @@ namespace AutoStrongName.Project
     using System.IO;
     using System.Linq;
     using System.Reflection;
+    using System.Xml;
 
-    public class ProjectDefinition: IReferences
+    public class ProjectDefinition : IReferences
     {
         private readonly Microsoft.Build.Evaluation.Project _project;
         private readonly string _projectPath;
@@ -36,7 +37,9 @@ namespace AutoStrongName.Project
         public ProjectDefinition(string path)
         {
             _projectPath = Path.GetDirectoryName(path);
-            _project = new Microsoft.Build.Evaluation.Project(path);
+            using (var projectReader = File.OpenText(path))
+            using (var xmlReader = new XmlTextReader(projectReader))
+                _project = new Microsoft.Build.Evaluation.Project(xmlReader);
         }
 
         public IEnumerable<AssemblyReference> LoadReferences()
