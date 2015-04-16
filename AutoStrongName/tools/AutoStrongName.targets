@@ -7,8 +7,8 @@
       TaskName="SignDependencies"
       AssemblyFile="$(SolutionDir)\AutoStrongName\bin\Debug\AutoStrongName.exe.task" />
   <Target 
-      BeforeTargets="Compile"
       Name="AutoStrongNameTarget"
+      BeforeTargets="CoreCompile"
       >
     <SignDependencies ProjectPath="$(ProjectPath)" />
   </Target>
