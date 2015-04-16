@@ -22,6 +22,6 @@
   </metadata>
   <files>
     <file src="NuGet\**\*" target="."/>
-    <file src="bin\$ConfigurationName$\AutoStrongName.dll" target="."/>
+    <!--<file src="bin\$ConfigurationName$\AutoStrongName.dll" target="."/>-->
   </files>
 </package>
