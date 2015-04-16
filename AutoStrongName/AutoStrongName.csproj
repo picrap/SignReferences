@@ -118,6 +118,8 @@
 
 if not "$(ConfigurationName)"=="Release" goto :noRelease
 
+echo Packaging for NuGet...
+
 copy "$(TargetPath)" "$(TargetDir)AutoStrongName.dll"
 "$(SolutionDir)\.nuget\NuGet.exe" pack "$(ProjectDir)\AutoStrongName.nuspec" -Verbosity detailed -NonInteractive -IncludeReferencedProjects -NonInteractive -Tool -Properties ConfigurationName=$(ConfigurationName) 
 
