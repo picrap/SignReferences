@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <SignReferencesPath Condition="$(SignReferencesPath) == '' Or $(SignReferencesPath) == '*Undefined*'">$(MSBuildThisFileDirectory)..\SignReferences.dll</SignReferencesPath>
+  </PropertyGroup>
+
+  <!-- Debug stuff -->
+  <!--<UsingTask
+      TaskName="SignUnsignedReferences"
+      AssemblyFile="$(SolutionDir)\SignReferences\bin\Debug\SignReferences.exe.task" />-->
+  <UsingTask
+      TaskName="SignUnsignedReferences"
+      AssemblyFile="$(SignReferencesPath)" />
+  <Target
+      Name="SignReferencesTarget"
+      BeforeTargets="CoreCompile"
+      >
+    <SignUnsignedReferences ProjectPath="$(ProjectPath)" />
+  </Target>
+</Project>
+
