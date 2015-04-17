@@ -38,7 +38,7 @@ namespace SignReferences.Signing
             {
                 foreach (var unsignedReference in unsignedReferences)
                 {
-                    _logging.Write("Signed Assembly {0}", unsignedReference.AssemblyName.FullName);
+                    _logging.Write("SignReference signed Assembly {0}", unsignedReference.AssemblyName.FullName);
                     assemblySigner.Sign(unsignedReference);
                 }
             }
