@@ -197,3 +197,5 @@ FakesAssemblies/
 AutoStrongName/Properties/ProductInfo.cs
 AutoStrongName/AutoStrongName.nuspec
 AutoStrongName/AutoStrongName.nuspec
+SignReferences/Properties/ProductInfo.cs
+SignReferences/SignReferences.nuspec
