@@ -11,7 +11,7 @@
     <owners><#=Company#></owners>
     <licenseUrl><#=LicenseUrl#></licenseUrl>
     <projectUrl>https://github.com/picrap/SignReferences</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/ArxOne/MrAdvice.MVVM/master/Icon/MrAdvice.MVVM.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/picrap/SignReferences/master/Icon/SignReferences.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>.NET build step aspect weaver</summary>
     <description><#=Description#></description>

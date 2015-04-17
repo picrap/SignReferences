@@ -8,7 +8,7 @@
     <owners>openstore.craponne.fr</owners>
     <licenseUrl>http://opensource.org/licenses/mit-license.php</licenseUrl>
     <projectUrl>https://github.com/picrap/SignReferences</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/ArxOne/MrAdvice.MVVM/master/Icon/MrAdvice.MVVM.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/picrap/SignReferences/master/Icon/SignReferences.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>.NET build step aspect weaver</summary>
     <description>Signs unsigned assemblies at build-time. This is useful if your project requires signing and you use third-party unsigned libraries.</description>
