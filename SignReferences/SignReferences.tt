@@ -13,7 +13,7 @@
     <projectUrl>https://github.com/picrap/SignReferences</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/picrap/SignReferences/master/Icon/SignReferences.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>.NET build step aspect weaver</summary>
+    <summary>Build-time assembly references check and signing for unsigned assemblies</summary>
     <description><#=Description#></description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2015</copyright>
