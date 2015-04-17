@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>SignReferences</id>
+    <version>0.1.0.3</version>
+    <title>SignReferences</title>
+    <authors>openstore.craponne.fr</authors>
+    <owners>openstore.craponne.fr</owners>
+    <licenseUrl>http://opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/picrap/SignReferences</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/ArxOne/MrAdvice.MVVM/master/Icon/MrAdvice.MVVM.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>.NET build step aspect weaver</summary>
+    <description>Signs unsigned assemblies at build-time. This is useful if your project requires signing and you use third-party unsigned libraries.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>strong naming dependencies snk sign key</tags>
+    <developmentDependency>true</developmentDependency>
+  </metadata>
+  <files>
+    <file src="NuGet\**\*" target="."/>
+    <file src="bin\$ConfigurationName$\SignReferences.dll" target="."/>
+  </files>
+</package>

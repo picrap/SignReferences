@@ -1,4 +1,4 @@
-# AutoStrongName appveyor.yml script
+# SignReferences appveyor.yml script
 
 version: '{branch}-{build}'
 
@@ -20,7 +20,7 @@ build:
   verbosity: minimal
 
 artifacts:
-  - path: 'AutoStrongName\bin\$(configuration)\*.nupkg'
+  - path: 'SignReferences\bin\$(configuration)\*.nupkg'
 
 deploy:
   provider: NuGet
@@ -28,5 +28,5 @@ deploy:
     secure: rEYnR9JThbc6x8DdCo1K8+fgsGKzjNKzTZsldXFLYMm/tFPC7JWWvuKpVTrDBd+g
   skip_symbols: false
 
-after_test:
-  ps: Get-ChildItem .\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+#after_test:
+#  ps: Get-ChildItem .\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }

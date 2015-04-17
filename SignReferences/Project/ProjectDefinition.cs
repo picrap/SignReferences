@@ -1,20 +1,19 @@
-﻿#region AutoStrongName
-// AutoStrongName
+﻿#region SignReferences
 // An automatic tool to presign unsigned dependencies
-// https://github.com/picrap/AutoStrongName
+// https://github.com/picrap/SignReferences
 #endregion
-
-namespace AutoStrongName.Project
+namespace SignReferences.Project
 {
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Reflection;
     using System.Xml;
+    using Microsoft.Build.Evaluation;
 
     public class ProjectDefinition : IReferences
     {
-        private readonly Microsoft.Build.Evaluation.Project _project;
+        private readonly Project _project;
         private readonly string _projectPath;
 
         private IEnumerable<AssemblyReference> _references;
@@ -39,7 +38,7 @@ namespace AutoStrongName.Project
             _projectPath = Path.GetDirectoryName(path);
             using (var projectReader = File.OpenText(path))
             using (var xmlReader = new XmlTextReader(projectReader))
-                _project = new Microsoft.Build.Evaluation.Project(xmlReader);
+                _project = new Project(xmlReader);
         }
 
         public IEnumerable<AssemblyReference> LoadReferences()

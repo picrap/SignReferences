@@ -1,22 +1,20 @@
-﻿#region AutoStrongName
-// AutoStrongName
+﻿#region SignReferences
 // An automatic tool to presign unsigned dependencies
-// https://github.com/picrap/AutoStrongName
+// https://github.com/picrap/SignReferences
 #endregion
 
-using Microsoft.Build.Utilities;
 using System.Diagnostics;
 using System.IO;
-using AutoStrongName;
-using AutoStrongName.Logging;
-using AutoStrongName.Signing;
 using CommandLine;
 using Microsoft.Build.Framework;
+using Microsoft.Build.Utilities;
+using SignReferences;
+using SignReferences.Logging;
+using SignReferences.Signing;
 
-// ReSharper disable once UnusedMember.Global
-// ReSharper disable once CheckNamespace
 // ReSharper disable once ClassNeverInstantiated.Global
-public class SignDependencies : Task
+// ReSharper disable once CheckNamespace
+public class SignUnsignedReferences : Task
 {
     /// <summary>
     /// Gets or sets the project path.

@@ -1,9 +1,8 @@
-﻿#region AutoStrongName
-// AutoStrongName
+﻿#region SignReferences
 // An automatic tool to presign unsigned dependencies
-// https://github.com/picrap/AutoStrongName
+// https://github.com/picrap/SignReferences
 #endregion
-namespace AutoStrongName.Signing
+namespace SignReferences.Signing
 {
     using System.Diagnostics;
     using System.Linq;
@@ -44,7 +43,7 @@ namespace AutoStrongName.Signing
                 }
             }
             var elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
-            _logging.WriteDebug("AutoStrongName ran in {0}ms", elapsedMilliseconds);
+            _logging.WriteDebug("SignReferences ran in {0}ms", elapsedMilliseconds);
         }
     }
 }

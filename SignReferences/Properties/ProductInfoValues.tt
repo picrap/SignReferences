@@ -1,7 +1,7 @@
 ﻿<#
     // all common data between assembly information and nuspec package are stored here
-    var Version = "0.1.0.2";
-    var Title = "AutoStrongName";
+    var Version = "0.1.0.3";
+    var Title = "SignReferences";
     var Company = "openstore.craponne.fr";
     var License = "MIT License";
     var LicenseUrl = "http://opensource.org/licenses/mit-license.php";

@@ -4,13 +4,13 @@
 <#@ include file="Properties\ProductInfoValues.tt" #>
 <package>
   <metadata>
-    <id>AutoStrongName</id>
+    <id>SignReferences</id>
     <version><#=Version#></version>
     <title><#=Title#></title>
     <authors><#=Company#></authors>
     <owners><#=Company#></owners>
     <licenseUrl><#=LicenseUrl#></licenseUrl>
-    <projectUrl>https://github.com/picrap/AutoStrongName</projectUrl>
+    <projectUrl>https://github.com/picrap/SignReferences</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/ArxOne/MrAdvice.MVVM/master/Icon/MrAdvice.MVVM.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>.NET build step aspect weaver</summary>
@@ -22,6 +22,6 @@
   </metadata>
   <files>
     <file src="NuGet\**\*" target="."/>
-    <file src="bin\$ConfigurationName$\AutoStrongName.dll" target="."/>
+    <file src="bin\$ConfigurationName$\SignReferences.dll" target="."/>
   </files>
 </package>

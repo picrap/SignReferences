@@ -8,8 +8,8 @@
     <ProjectGuid>{751F8EE9-7F79-49C1-BA66-C3FA1E008EE1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoStrongName</RootNamespace>
-    <AssemblyName>AutoStrongName</AssemblyName>
+    <RootNamespace>SignReferences</RootNamespace>
+    <AssemblyName>SignReferences</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -57,7 +57,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductInfo.tt</DependentUpon>
     </Compile>
-    <Compile Include="SignDependencies.cs" />
+    <Compile Include="SignUnsignedReferences.cs" />
     <Compile Include="Project\AssemblyReference.cs" />
     <Compile Include="Signing\AssemblySigner.cs" />
     <Compile Include="Project\IReferences.cs" />
@@ -71,12 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="AutoStrongName.nuspec">
+    <None Include="SignReferences.nuspec">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AutoStrongName.tt</DependentUpon>
+      <DependentUpon>SignReferences.tt</DependentUpon>
     </None>
-    <None Include="NuGet\build\AutoStrongName.targets">
+    <None Include="NuGet\build\SignReferences.targets">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -88,9 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
-    <None Include="AutoStrongName.tt">
+    <None Include="SignReferences.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AutoStrongName.nuspec</LastGenOutput>
+      <LastGenOutput>SignReferences.nuspec</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -120,8 +120,8 @@ if not "$(ConfigurationName)"=="Release" goto :noRelease
 
 echo Packaging for NuGet...
 
-copy "$(TargetPath)" "$(TargetDir)AutoStrongName.dll"
-"$(SolutionDir)\.nuget\NuGet.exe" pack "$(ProjectDir)\AutoStrongName.nuspec" -Verbosity detailed -NonInteractive -IncludeReferencedProjects -NonInteractive -Tool -Properties ConfigurationName=$(ConfigurationName) 
+copy "$(TargetPath)" "$(TargetDir)SignReferences.dll"
+"$(SolutionDir)\.nuget\NuGet.exe" pack "$(ProjectDir)\SignReferences.nuspec" -Verbosity detailed -NonInteractive -IncludeReferencedProjects -NonInteractive -Tool -Properties ConfigurationName=$(ConfigurationName) 
 
 :noRelease
 </PostBuildEvent>

@@ -1,10 +1,8 @@
-#region AutoStrongName
-// AutoStrongName
+#region SignReferences
 // An automatic tool to presign unsigned dependencies
-// https://github.com/picrap/AutoStrongName
+// https://github.com/picrap/SignReferences
 #endregion
-
-namespace AutoStrongName.Logging
+namespace SignReferences.Logging
 {
     using System;
 
