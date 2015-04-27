@@ -50,8 +50,8 @@ public class SignUnsignedReferences : Task
         var logging = new TaskLogging(this);
         if (wrappedTaskPath == null)
         {
-            var projectSigner = new ProjectSigner(logging);
-            projectSigner.Sign(ProjectPath);
+            using (var projectSigner = new ProjectSigner(logging))
+                projectSigner.Sign(ProjectPath);
         }
         else
         {
@@ -86,7 +86,7 @@ public class SignUnsignedReferences : Task
     public static void Main(string[] args)
     {
         var parameters = Parser.Default.ParseArguments<Parameters>(args);
-        var projectSigner = new ProjectSigner(new ConsoleLogging());
-        projectSigner.Sign(parameters.Value.ProjectPath);
+        using (var projectSigner = new ProjectSigner(new ConsoleLogging()))
+            projectSigner.Sign(parameters.Value.ProjectPath);
     }
 }

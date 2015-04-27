@@ -68,6 +68,8 @@
     <Compile Include="Signing\ProjectSigner.cs" />
     <Compile Include="Utility\EnumerableExtensions.cs" />
     <Compile Include="Logging\TaskLogging.cs" />
+    <Compile Include="Utility\PathUtility.cs" />
+    <Compile Include="Utility\ProcessUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
