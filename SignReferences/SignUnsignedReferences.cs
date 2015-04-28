@@ -12,12 +12,16 @@ using SignReferences;
 using SignReferences.Logging;
 using SignReferences.Signing;
 
+/// <summary>
+/// Main entry point for module.
+/// Can be executed as a Task (hence the <see cref="Task"/> inheritance) or standalone exe
+/// </summary>
 // ReSharper disable once ClassNeverInstantiated.Global
 // ReSharper disable once CheckNamespace
 public class SignUnsignedReferences : Task
 {
     /// <summary>
-    /// Gets or sets the project path.
+    /// Gets or sets the project path (this is injected in the task).
     /// </summary>
     /// <value>
     /// The project path.
@@ -27,6 +31,8 @@ public class SignUnsignedReferences : Task
 
     /// <summary>
     /// Gets the wrapped task path.
+    /// This is used when debugging inline task.
+    /// The tast is named "*.task", so we call "*"
     /// </summary>
     /// <returns></returns>
     private string GetWrappedTaskPath()
@@ -48,13 +54,16 @@ public class SignUnsignedReferences : Task
     {
         var wrappedTaskPath = GetWrappedTaskPath();
         var logging = new TaskLogging(this);
+        // see if the task is just a stub, which is the case if we have a wrapped task
+        // (this allows to build and debug)
         if (wrappedTaskPath == null)
         {
-            using (var projectSigner = new ProjectSigner(logging))
-                projectSigner.Sign(ProjectPath);
+            var projectSigner = new ProjectSigner(logging);
+            projectSigner.Sign(ProjectPath);
         }
         else
         {
+            // run the application as a command-line application
             var process = new Process
             {
                 StartInfo =
@@ -86,7 +95,7 @@ public class SignUnsignedReferences : Task
     public static void Main(string[] args)
     {
         var parameters = Parser.Default.ParseArguments<Parameters>(args);
-        using (var projectSigner = new ProjectSigner(new ConsoleLogging()))
-            projectSigner.Sign(parameters.Value.ProjectPath);
+        var projectSigner = new ProjectSigner(new ConsoleLogging());
+        projectSigner.Sign(parameters.Value.ProjectPath);
     }
 }

@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{22CD69D3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignReferences", "SignReferences\SignReferences.csproj", "{751F8EE9-7F79-49C1-BA66-C3FA1E008EE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignReferencesTest", "SignReferencesTest\SignReferencesTest.csproj", "{A91DF14F-B0FA-4658-9051-130D31DC7E82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{751F8EE9-7F79-49C1-BA66-C3FA1E008EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{751F8EE9-7F79-49C1-BA66-C3FA1E008EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{751F8EE9-7F79-49C1-BA66-C3FA1E008EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91DF14F-B0FA-4658-9051-130D31DC7E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91DF14F-B0FA-4658-9051-130D31DC7E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91DF14F-B0FA-4658-9051-130D31DC7E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91DF14F-B0FA-4658-9051-130D31DC7E82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
