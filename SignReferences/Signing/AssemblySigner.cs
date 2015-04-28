@@ -29,6 +29,9 @@ namespace SignReferences.Signing
             else
             {
                 // first sign
+                // no simple solution found here, so here is one way to do it:
+                // 1. disassemble to .il (and optionally .res) files, using ildasm
+                // 2. reassemble file, with given snk path, using ilasm
                 var ilPath = PathUtility.GetTempFileName(".il");
                 var isDll = string.Equals(Path.GetExtension(assembly.Path), ".dll", StringComparison.InvariantCultureIgnoreCase);
                 var tempOutput = assembly.Path + ".tmp";

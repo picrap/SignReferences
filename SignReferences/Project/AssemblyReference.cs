@@ -172,19 +172,9 @@ namespace SignReferences.Project
         {
             if (Path == null)
                 return null;
-            try
-            {
-                var absolutePath = System.IO.Path.GetFullPath(Path);
-                Path = absolutePath;
-                return Assembly.ReflectionOnlyLoad(File.ReadAllBytes(absolutePath));
-            }
-            catch (FileLoadException)
-            { }
-            catch (FileNotFoundException)
-            { }
-            catch (BadImageFormatException)
-            { }
-            return null;
+            var absolutePath = System.IO.Path.GetFullPath(Path);
+            Path = absolutePath;
+            return SafeLoad(() => Assembly.ReflectionOnlyLoad(File.ReadAllBytes(absolutePath)));
         }
 
         /// <summary>
@@ -195,34 +185,29 @@ namespace SignReferences.Project
         {
             if (Name == null)
                 return null;
-            try
-            {
-                return Assembly.ReflectionOnlyLoad(Name.FullName);
-            }
-            catch (FileLoadException)
-            {
-            }
-            catch (FileNotFoundException)
-            {
-            }
-            catch (BadImageFormatException)
-            {
-            }
-            try
-            {
+            return SafeLoad(() => Assembly.ReflectionOnlyLoad(Name.FullName))
 #pragma warning disable 618
-                return Assembly.LoadWithPartialName(Name.ToString());
+ ?? SafeLoad(() => Assembly.LoadWithPartialName(Name.ToString()));
 #pragma warning restore 618
+        }
+
+        /// <summary>
+        /// Safe loading of assembly (catches exceptions and returns null).
+        /// </summary>
+        /// <param name="loader">The loader.</param>
+        /// <returns></returns>
+        private static Assembly SafeLoad(Func<Assembly> loader)
+        {
+            try
+            {
+                return loader();
             }
             catch (FileLoadException)
-            {
-            }
+            { }
             catch (FileNotFoundException)
-            {
-            }
+            { }
             catch (BadImageFormatException)
-            {
-            }
+            { }
             return null;
         }
     }

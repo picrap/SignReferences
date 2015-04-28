@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿#region SignReferences
+// An automatic tool to presign unsigned dependencies
+// https://github.com/picrap/SignReferences
+#endregion
 
 namespace SignReferences.Utility
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics;
     using System.IO;
+    using System.Linq;
 
     /// <summary>
     /// Utility for processes
@@ -14,29 +18,42 @@ namespace SignReferences.Utility
     public static class ProcessUtility
     {
         /// <summary>
-        /// Invokes the specified executable.
+        /// Invokes the specified executable (and searches through system path definitions).
         /// </summary>
         /// <param name="exeName">Name of the executable.</param>
         /// <param name="commandFormat">The command format.</param>
         /// <param name="arguments">The arguments.</param>
-        public static void Invoke(string exeName, string commandFormat, params object[] arguments)
+        /// <returns>true if the process was run successfully</returns>
+        public static bool Invoke(string exeName, string commandFormat, params object[] arguments)
         {
             var commandLine = string.Format(commandFormat, arguments);
             var applicationPath = GetApplicationPath(exeName);
-            var process = new Process
+            try
             {
-                StartInfo = new ProcessStartInfo(applicationPath, commandLine)
+                var process = new Process
                 {
-                    UseShellExecute = false
-                }
-            };
+                    StartInfo = new ProcessStartInfo(applicationPath, commandLine)
+                    {
+                        UseShellExecute = false
+                    }
+                };
 
-            process.Start();
-            process.WaitForExit();
+                process.Start();
+                process.WaitForExit();
+                return true;
+            }
+            catch (Win32Exception) { }
+            catch (SystemException) { }
+            return false;
         }
 
         private static readonly IDictionary<string, string> ExePathByName = new Dictionary<string, string>();
 
+        /// <summary>
+        /// Gets the application path.
+        /// </summary>
+        /// <param name="exeName">Name of the executable.</param>
+        /// <returns></returns>
         private static string GetApplicationPath(string exeName)
         {
             string exePath;
@@ -46,6 +63,12 @@ namespace SignReferences.Utility
             return exePath;
         }
 
+        /// <summary>
+        /// Finds the application path.
+        /// This is a done in a dirty way, but since I write it here, you can not say you've not been warned.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns></returns>
         private static string FindApplicationPath(string fileName)
         {
             if (File.Exists(fileName))

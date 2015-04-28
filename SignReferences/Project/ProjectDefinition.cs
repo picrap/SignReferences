@@ -11,6 +11,9 @@ namespace SignReferences.Project
     using System.Xml;
     using Microsoft.Build.Evaluation;
 
+    /// <summary>
+    /// Wraps a project (from Microsoft.Build)
+    /// </summary>
     public class ProjectDefinition : IReferences
     {
         private readonly Project _project;
@@ -33,6 +36,10 @@ namespace SignReferences.Project
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProjectDefinition"/> class.
+        /// </summary>
+        /// <param name="path">The path.</param>
         public ProjectDefinition(string path)
         {
             _projectPath = Path.GetDirectoryName(path);
@@ -41,7 +48,11 @@ namespace SignReferences.Project
                 _project = new Project(xmlReader);
         }
 
-        public IEnumerable<AssemblyReference> LoadReferences()
+        /// <summary>
+        /// Loads the references.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<AssemblyReference> LoadReferences()
         {
             var references = _project.Items.Where(i => i.ItemType == "Reference").ToArray();
             foreach (var reference in references)

@@ -21,6 +21,12 @@ namespace SignReferences.Signing
 
         private string _defaultKeyFile;
 
+        /// <summary>
+        /// Gets the default key file.
+        /// </summary>
+        /// <value>
+        /// The default key file.
+        /// </value>
         private string DefaultKeyFile
         {
             get
@@ -31,6 +37,9 @@ namespace SignReferences.Signing
             }
         }
 
+        /// <summary>
+        /// Disposes resources
+        /// </summary>
         public void Dispose()
         {
             if (File.Exists(_defaultKeyFile))

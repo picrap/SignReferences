@@ -9,6 +9,9 @@ namespace SignReferences.Project
     using System.Linq;
     using Utility;
 
+    /// <summary>
+    /// Extensions to <see cref="ProjectDefinition"/>
+    /// </summary>
     public static class ProjectDefinitionExtensions
     {
         /// <summary>
