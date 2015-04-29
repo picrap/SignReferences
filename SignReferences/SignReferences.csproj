@@ -48,10 +48,6 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
-    <Reference Include="WildcardMatch, Version=1.0.3.0, Culture=neutral, PublicKeyToken=9e63cdfa062b7634, processorArchitecture=MSIL">
-      <HintPath>..\packages\WildcardMatch.1.0.3\lib\portable-net40+sl40+win+wp\WildcardMatch.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logging\ConsoleLogging.cs" />
