@@ -35,7 +35,7 @@ namespace SignReferences.Signing
             }
         }
 
-        private AssemblyKey[] _assemblyKeys;
+        private AssemblyKey[] _assemblyKeys = new AssemblyKey[0];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AssemblyKeyProvider"/> class.
