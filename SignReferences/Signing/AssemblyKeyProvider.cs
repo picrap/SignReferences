@@ -35,20 +35,30 @@ namespace SignReferences.Signing
             }
         }
 
-        private AssemblyKey[] _assemblyKeys = new AssemblyKey[0];
+        private readonly List<AssemblyKey> _assemblyKeys = new List<AssemblyKey>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AssemblyKeyProvider"/> class.
+        /// Initializes a new instance of the <see cref="AssemblyKeyProvider" /> class.
         /// </summary>
-        /// <param name="projectPath">The project path.</param>
-        public AssemblyKeyProvider(string projectPath)
+        /// <param name="relatedFilePaths">The related file paths.</param>
+        public AssemblyKeyProvider(params string[] relatedFilePaths)
         {
-            if (projectPath == null)
+            foreach (var relatedFilePath in relatedFilePaths)
+                Load(relatedFilePath);
+        }
+
+        /// <summary>
+        /// Loads the reference file beside the given file.
+        /// </summary>
+        /// <param name="relatedFilePath">The related file path.</param>
+        private void Load(string relatedFilePath)
+        {
+            if (relatedFilePath == null)
                 return;
-            var projectDir = Path.GetDirectoryName(projectPath);
-            var referencesTxt = Path.Combine(projectDir, "SignReferences.txt");
+            var directory = Path.GetDirectoryName(relatedFilePath);
+            var referencesTxt = Path.Combine(directory, "SignReferences.txt");
             if (File.Exists(referencesTxt))
-                Load(File.ReadAllText(referencesTxt), projectDir);
+                Load(File.ReadAllText(referencesTxt), directory);
         }
 
         /// <summary>
@@ -61,7 +71,7 @@ namespace SignReferences.Signing
             var keys = new List<AssemblyKey>();
             using (var stringReader = new StringReader(referencesText))
             {
-                for (; ; )
+                for (;;)
                 {
                     var line = stringReader.ReadLine();
                     if (line == null)
@@ -75,7 +85,7 @@ namespace SignReferences.Signing
                     keys.Add(new AssemblyKey(assemblyMask, snkPath));
                 }
             }
-            _assemblyKeys = keys.ToArray();
+            _assemblyKeys.AddRange(keys);
         }
 
         /// <summary>

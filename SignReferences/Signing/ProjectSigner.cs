@@ -29,13 +29,14 @@ namespace SignReferences.Signing
         /// Signs the project specified by full path.
         /// </summary>
         /// <param name="projectPath">The project path.</param>
-        public void Sign(string projectPath)
+        /// <param name="solutionPath">The solution path.</param>
+        public void Sign(string projectPath, string solutionPath)
         {
             var stopwatch = new Stopwatch();
             var project = new ProjectDefinition(projectPath);
             var unsignedReferences = project.GetReferences(r => !(r.IsSigned ?? true)).ToArray();
             var assemblySigner = new AssemblySigner();
-            using (var keyProvider = new AssemblyKeyProvider(projectPath))
+            using (var keyProvider = new AssemblyKeyProvider(projectPath, solutionPath))
             {
                 foreach (var unsignedReference in unsignedReferences)
                 {

@@ -30,6 +30,14 @@ public class SignUnsignedReferences : Task
     public string ProjectPath { get; set; }
 
     /// <summary>
+    /// Gets or sets the solution path (also injected by task).
+    /// </summary>
+    /// <value>
+    /// The solution path.
+    /// </value>
+    public string SolutionPath { get; set; }
+
+    /// <summary>
     /// Gets the wrapped task path.
     /// This is used when debugging inline task.
     /// The tast is named "*.task", so we call "*"
@@ -59,7 +67,7 @@ public class SignUnsignedReferences : Task
         if (wrappedTaskPath == null)
         {
             var projectSigner = new ProjectSigner(logging);
-            projectSigner.Sign(ProjectPath);
+            projectSigner.Sign(ProjectPath, SolutionPath);
         }
         else
         {
@@ -69,14 +77,14 @@ public class SignUnsignedReferences : Task
                 StartInfo =
                 {
                     FileName = wrappedTaskPath,
-                    Arguments = string.Format("--{0}=\"{1}\"", Parameters.ProjectOption, ProjectPath),
+                    Arguments = $"--{Parameters.ProjectOption}=\"{ProjectPath}\" --{Parameters.SolutionOption}=\"{SolutionPath}\"",
                     UseShellExecute = false,
                     CreateNoWindow = true,
                     RedirectStandardOutput = true,
                     RedirectStandardInput = true,
                 }
             };
-            process.OutputDataReceived += delegate(object sender, DataReceivedEventArgs e)
+            process.OutputDataReceived += delegate (object sender, DataReceivedEventArgs e)
             {
                 if (e.Data != null)
                     logging.Write(e.Data);
@@ -96,6 +104,6 @@ public class SignUnsignedReferences : Task
     {
         var parameters = Parser.Default.ParseArguments<Parameters>(args);
         var projectSigner = new ProjectSigner(new ConsoleLogging());
-        projectSigner.Sign(parameters.Value.ProjectPath);
+        projectSigner.Sign(parameters.Value.ProjectPath, parameters.Value.SolutionPath);
     }
 }

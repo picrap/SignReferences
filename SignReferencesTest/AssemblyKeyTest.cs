@@ -30,7 +30,7 @@ namespace SignReferencesTest
 
         private static AssemblyKeyProvider CreateAssemblyKeyProvider()
         {
-            var assemblyKeyProvider = new AssemblyKeyProvider(null);
+            var assemblyKeyProvider = new AssemblyKeyProvider();
             assemblyKeyProvider.Load(
                 @"thisOne.dll: some.snk
 a*.dll: other.snk",

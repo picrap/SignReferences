@@ -126,7 +126,7 @@
   <PropertyGroup>
     <PostBuildEvent>rem --- NuGet pack ------------------------------------------------------------------------------
 
-if not "$(ConfigurationName)"=="Release" goto :noRelease
+rem if not "$(ConfigurationName)"=="Release" goto :noRelease
 
 echo Packaging for NuGet...
 

@@ -16,7 +16,7 @@
       Name="SignReferencesTarget"
       BeforeTargets="CoreCompile"
       >
-    <SignUnsignedReferences ProjectPath="$(ProjectPath)" />
+    <SignUnsignedReferences ProjectPath="$(ProjectPath)" SolutionPath="$(SolutionPath)" />
   </Target>
 </Project>
 
