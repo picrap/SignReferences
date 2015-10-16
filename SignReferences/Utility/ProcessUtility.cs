@@ -78,12 +78,14 @@ namespace SignReferences.Utility
             var windowsSdkDir = Environment.GetEnvironmentVariable("WindowsSdkDir");
             return path.Select(p => TryPath(p, fileName)).SingleOrDefault(p => p != null)
                    ?? TryPath(windowsSdkDir, fileName) ?? TryPath(windowsSdkDir, "bin", fileName)
-                // I'm not proud of this, but this is for debugging
+                       // I'm not proud of this, but this is for debugging
                    ?? TryPath(@"c:\Windows\Microsoft.NET\Framework\v4.0.30319", fileName)
                    ?? TryPath(@"c:\Windows\Microsoft.NET\Framework\v2.0.50727", fileName)
-                   ?? TryPath(@"c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin", fileName)
+                   ?? TryPath(@"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6 Tools", fileName)
+                   ?? TryPath(@"c:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\Bin", fileName)
                    ?? TryPath(@"c:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\Bin", fileName)
-                   ?? TryPath(@"c:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\Bin", fileName);
+                   ?? TryPath(@"c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin", fileName)
+                ;
         }
 
         /// <summary>
