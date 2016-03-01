@@ -76,7 +76,7 @@ namespace SignReferences.Utility
 
             var path = Environment.GetEnvironmentVariable("PATH").Split(';');
             var windowsSdkDir = Environment.GetEnvironmentVariable("WindowsSdkDir");
-            return path.Select(p => TryPath(p, fileName)).SingleOrDefault(p => p != null)
+            return path.Select(p => TryPath(p, fileName)).FirstOrDefault(p => p != null)
                    ?? TryPath(windowsSdkDir, fileName) ?? TryPath(windowsSdkDir, "bin", fileName)
                        // I'm not proud of this, but this is for debugging
                    ?? TryPath(@"c:\Windows\Microsoft.NET\Framework\v4.0.30319", fileName)
