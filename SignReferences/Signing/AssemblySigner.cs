@@ -21,12 +21,9 @@ namespace SignReferences.Signing
         /// <param name="snkPath">The SNK path.</param>
         public void Sign(AssemblyReference assembly, string snkPath)
         {
-            if (assembly.Assembly.GetName().GetPublicKey().Length > 0)
-            {
-                // resign, which actually never happens :)
-                ProcessUtility.Invoke("sn.exe", "-q -Ra \"{0}\" \"{1}\"", assembly.Path, snkPath);
-            }
-            else
+            var publicKey = assembly.Assembly.GetName().GetPublicKey();
+            // check the referenced assembly is not already signed, and then, sign it!
+            if (publicKey.Length == 0)
             {
                 // first sign
                 // no simple solution found here, so here is one way to do it:
