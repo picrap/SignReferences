@@ -13,8 +13,8 @@ namespace SignReferences.Signing
         /// <value>
         /// The name.
         /// </value>
-        public string Name { get; private set; }
-        public string SnkPath { get; private set; }
+        public string Name { get; }
+        public string SnkPath { get; }
 
         /// <summary>
         /// Assemblies the key.

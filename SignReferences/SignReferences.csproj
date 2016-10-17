@@ -18,6 +18,7 @@
     <RestorePackages>true</RestorePackages>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <OutputPath>.</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -40,18 +41,13 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Build" />
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logging\ConsoleLogging.cs" />
-    <Compile Include="Logging\ILogging.cs" />
     <Compile Include="Properties\ProductInfo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -61,15 +57,8 @@
     <Compile Include="Signing\AssemblyKeyProvider.cs" />
     <Compile Include="SignReferencesStitcher.cs" />
     <Compile Include="SignReferencesTask.cs" />
-    <Compile Include="Project\AssemblyReference.cs" />
-    <Compile Include="Signing\AssemblySigner.cs" />
-    <Compile Include="Project\IReferences.cs" />
-    <Compile Include="Project\ProjectDefinitionExtensions.cs" />
-    <Compile Include="Project\ProjectDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Signing\ProjectSigner.cs" />
     <Compile Include="Utility\EnumerableExtensions.cs" />
-    <Compile Include="Logging\TaskLogging.cs" />
     <Compile Include="Utility\PathUtility.cs" />
     <Compile Include="Utility\ProcessUtility.cs" />
   </ItemGroup>

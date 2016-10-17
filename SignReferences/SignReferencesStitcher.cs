@@ -8,6 +8,7 @@
 namespace SignReferences
 {
     using System;
+    using System.Diagnostics;
     using System.Linq;
     using Signing;
     using StitcherBoy.Reflection;
@@ -18,9 +19,11 @@ namespace SignReferences
     {
         protected override bool Process(AssemblyStitcherContext context)
         {
+            var stopwatch = new Stopwatch();
             var assemblyKeyProvider = new AssemblyKeyProvider(".");
             foreach (var dependency in context.Dependencies.Where(d => d.IsPrivate))
                 Sign(dependency, assemblyKeyProvider);
+            Logging.Write("SignReferences ran in {0}ms", stopwatch.ElapsedMilliseconds);
             return false; // whatever, actually, because we didn't load the main assembly (which at this stage is not even built)
         }
 

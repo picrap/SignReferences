@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5": {
-      "Blobber/0.5.7.2": {
+      "Blobber/0.6.0": {
         "type": "package"
       },
       "Clarius.TransformOnBuild/1.1.12": {
@@ -18,7 +18,7 @@
           "lib/net40/CommandLine.dll": {}
         }
       },
-      "StitcherBoy/0.13.0": {
+      "StitcherBoy/0.13.1": {
         "type": "package",
         "compile": {
           "lib/net45/StitcherBoy.dll": {}
@@ -38,7 +38,7 @@
       }
     },
     ".NETFramework,Version=v4.5/win": {
-      "Blobber/0.5.7.2": {
+      "Blobber/0.6.0": {
         "type": "package"
       },
       "Clarius.TransformOnBuild/1.1.12": {
@@ -53,7 +53,7 @@
           "lib/net40/CommandLine.dll": {}
         }
       },
-      "StitcherBoy/0.13.0": {
+      "StitcherBoy/0.13.1": {
         "type": "package",
         "compile": {
           "lib/net45/StitcherBoy.dll": {}
@@ -74,14 +74,14 @@
     }
   },
   "libraries": {
-    "Blobber/0.5.7.2": {
-      "sha512": "bhGIk0ZDGyeMhsJ7Dtse/HLA0iwFsWKvDu4Rwh8BqRqEAsU3Pg/EF7/pIK1QlM0ggD2pwLG0oCe3+RazVvqljw==",
+    "Blobber/0.6.0": {
+      "sha512": "AnVgNfSesPNrhCbhwLRv4kmKz0k1nkFc8KOaVhhxfo0OYp59R5HxaRpqDTLLj1KR6c9jYD+reHWtmGk/RfXYtQ==",
       "type": "package",
-      "path": "Blobber/0.5.7.2",
+      "path": "Blobber/0.6.0",
       "files": [
-        "Blobber.0.5.7.2.nupkg.sha512",
-        "Blobber.exe",
+        "Blobber.0.6.0.nupkg.sha512",
         "Blobber.nuspec",
+        "build/Blobber.exe",
         "build/Blobber.targets"
       ]
     },
@@ -107,12 +107,12 @@
         "lib/net40/CommandLine.dll"
       ]
     },
-    "StitcherBoy/0.13.0": {
-      "sha512": "1D+SQr+SJgtebJ6CLYHVf8sZl/B/N3ndinElA6neXSXUiq1ubjfjqIsswj6oNHq04Z7vSsx+t93GITmI4qxJ2w==",
+    "StitcherBoy/0.13.1": {
+      "sha512": "Z5cNnLvGrzs6W9jWIajutdVr2hRhf2QAsRpZZ+DYDFDqisti6T30gokrsmcSD+MzV+yEK006kOGgQ3vzm3pooA==",
       "type": "package",
-      "path": "StitcherBoy/0.13.0",
+      "path": "StitcherBoy/0.13.1",
       "files": [
-        "StitcherBoy.0.13.0.nupkg.sha512",
+        "StitcherBoy.0.13.1.nupkg.sha512",
         "StitcherBoy.nuspec",
         "lib/net40/StitcherBoy.XML",
         "lib/net45/StitcherBoy.XML",
@@ -133,10 +133,10 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Blobber >= 0.5.7.2",
+      "Blobber >= 0.6.0",
       "Clarius.TransformOnBuild >= 1.1.12",
       "CommandLineParser20 >= 2.0.0",
-      "StitcherBoy >= 0.13.0",
+      "StitcherBoy >= 0.13.1",
       "WildcardMatch >= 1.0.5"
     ],
     ".NETFramework,Version=v4.5": []

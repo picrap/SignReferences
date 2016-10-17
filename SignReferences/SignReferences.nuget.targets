@@ -4,7 +4,7 @@
     <NuGetPackageRoot>$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
   </PropertyGroup>
   <ImportGroup>
-    <Import Project="$(NuGetPackageRoot)\Blobber\0.5.7.2\build\Blobber.targets" Condition="Exists('$(NuGetPackageRoot)\Blobber\0.5.7.2\build\Blobber.targets')" />
+    <Import Project="$(NuGetPackageRoot)\Blobber\0.6.0\build\Blobber.targets" Condition="Exists('$(NuGetPackageRoot)\Blobber\0.6.0\build\Blobber.targets')" />
     <Import Project="$(NuGetPackageRoot)\Clarius.TransformOnBuild\1.1.12\build\Clarius.TransformOnBuild.targets" Condition="Exists('$(NuGetPackageRoot)\Clarius.TransformOnBuild\1.1.12\build\Clarius.TransformOnBuild.targets')" />
   </ImportGroup>
 </Project>
