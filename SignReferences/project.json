@@ -3,7 +3,7 @@
     "Blobber": "0.6.0",
     "Clarius.TransformOnBuild": "1.1.12",
     "CommandLineParser20": "2.0.0",
-    "StitcherBoy": "0.13.1",
+    "StitcherBoy": "0.13.2",
     "WildcardMatch": "1.0.5"
   },
   "frameworks": {
