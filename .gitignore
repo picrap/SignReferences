@@ -200,4 +200,4 @@ AutoStrongName/AutoStrongName.nuspec
 SignReferences/Properties/ProductInfo.cs
 SignReferences/SignReferences.nuspec
 
-.lock.json
+*.lock.json

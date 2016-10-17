@@ -1,9 +1,9 @@
 ﻿{
   "dependencies": {
-    "Blobber": "0.6.0",
+    "Blobber": "0.6.2",
     "Clarius.TransformOnBuild": "1.1.12",
     "CommandLineParser20": "2.0.0",
-    "StitcherBoy": "0.13.2",
+    "StitcherBoy": "0.13.7",
     "WildcardMatch": "1.0.5"
   },
   "frameworks": {
