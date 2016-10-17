@@ -29,9 +29,9 @@ namespace SignReferences
 
         private void Sign(AssemblyDependency dependency, AssemblyKeyProvider assemblyKeyProvider)
         {
-            using (var moduleHandler = new ModuleManager(dependency.Path, false))
+            using (var moduleHandler = new ModuleManager(dependency.Path, false, null))
             {
-                if (moduleHandler.Module.IsStrongNameSigned)
+                if (moduleHandler.Module.Assembly.PublicKey?.Data?.Length > 0)
                     return;
 
                 var snkPath = assemblyKeyProvider.GetSnkPath(dependency.Path);
