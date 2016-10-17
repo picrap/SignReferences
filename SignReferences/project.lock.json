@@ -1,0 +1,146 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5": {
+      "Blobber/0.5.7.2": {
+        "type": "package"
+      },
+      "Clarius.TransformOnBuild/1.1.12": {
+        "type": "package"
+      },
+      "CommandLineParser20/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/CommandLine.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CommandLine.dll": {}
+        }
+      },
+      "StitcherBoy/0.13.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/StitcherBoy.dll": {}
+        },
+        "runtime": {
+          "lib/net45/StitcherBoy.dll": {}
+        }
+      },
+      "WildcardMatch/1.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10/WildcardMatch.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10/WildcardMatch.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5/win": {
+      "Blobber/0.5.7.2": {
+        "type": "package"
+      },
+      "Clarius.TransformOnBuild/1.1.12": {
+        "type": "package"
+      },
+      "CommandLineParser20/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/CommandLine.dll": {}
+        },
+        "runtime": {
+          "lib/net40/CommandLine.dll": {}
+        }
+      },
+      "StitcherBoy/0.13.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/StitcherBoy.dll": {}
+        },
+        "runtime": {
+          "lib/net45/StitcherBoy.dll": {}
+        }
+      },
+      "WildcardMatch/1.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10/WildcardMatch.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10/WildcardMatch.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Blobber/0.5.7.2": {
+      "sha512": "bhGIk0ZDGyeMhsJ7Dtse/HLA0iwFsWKvDu4Rwh8BqRqEAsU3Pg/EF7/pIK1QlM0ggD2pwLG0oCe3+RazVvqljw==",
+      "type": "package",
+      "path": "Blobber/0.5.7.2",
+      "files": [
+        "Blobber.0.5.7.2.nupkg.sha512",
+        "Blobber.exe",
+        "Blobber.nuspec",
+        "build/Blobber.targets"
+      ]
+    },
+    "Clarius.TransformOnBuild/1.1.12": {
+      "sha512": "IXQPVeqMJT3/t0Waa6BGGpCwbB+jIuoJaTK842VvfgEKLQlQxOGvCirDFm7FIY6EWWkW5hVPsD2pJOKIX5yS+g==",
+      "type": "package",
+      "path": "Clarius.TransformOnBuild/1.1.12",
+      "files": [
+        "Clarius.TransformOnBuild.1.1.12.nupkg.sha512",
+        "Clarius.TransformOnBuild.nuspec",
+        "Readme.txt",
+        "build/Clarius.TransformOnBuild.targets"
+      ]
+    },
+    "CommandLineParser20/2.0.0": {
+      "sha512": "zSJjXQDB05WhjOEnYbNl4gtQACm7mIu+fYn5Y5pxRg0f/nYIdJN5OvHAT/P+C2k7tBozKRxNjOQKBOe+p5jYFw==",
+      "type": "package",
+      "path": "CommandLineParser20/2.0.0",
+      "files": [
+        "CommandLineParser20.2.0.0.nupkg.sha512",
+        "CommandLineParser20.nuspec",
+        "lib/net40/CommandLine.XML",
+        "lib/net40/CommandLine.dll"
+      ]
+    },
+    "StitcherBoy/0.13.0": {
+      "sha512": "1D+SQr+SJgtebJ6CLYHVf8sZl/B/N3ndinElA6neXSXUiq1ubjfjqIsswj6oNHq04Z7vSsx+t93GITmI4qxJ2w==",
+      "type": "package",
+      "path": "StitcherBoy/0.13.0",
+      "files": [
+        "StitcherBoy.0.13.0.nupkg.sha512",
+        "StitcherBoy.nuspec",
+        "lib/net40/StitcherBoy.XML",
+        "lib/net45/StitcherBoy.XML",
+        "lib/net45/StitcherBoy.dll"
+      ]
+    },
+    "WildcardMatch/1.0.5": {
+      "sha512": "8YIXEJP9C+1C3Ts2/JLqYffaIAXY/FEAz4A31hOTDLWpmhJ2fLX4CE6Id/SMexDdDUEt7sCrY3gtLmNgxRaEZg==",
+      "type": "package",
+      "path": "WildcardMatch/1.0.5",
+      "files": [
+        "WildcardMatch.1.0.5.nupkg.sha512",
+        "WildcardMatch.nuspec",
+        "lib/portable-net40+sl50+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10/WildcardMatch.XML",
+        "lib/portable-net40+sl50+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10/WildcardMatch.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Blobber >= 0.5.7.2",
+      "Clarius.TransformOnBuild >= 1.1.12",
+      "CommandLineParser20 >= 2.0.0",
+      "StitcherBoy >= 0.13.0",
+      "WildcardMatch >= 1.0.5"
+    ],
+    ".NETFramework,Version=v4.5": []
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
+}

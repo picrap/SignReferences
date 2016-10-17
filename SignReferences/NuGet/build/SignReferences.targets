@@ -5,18 +5,10 @@
     <SignReferencesPath Condition="$(SignReferencesPath) == '' Or $(SignReferencesPath) == '*Undefined*'">$(MSBuildThisFileDirectory)..\SignReferences.dll</SignReferencesPath>
   </PropertyGroup>
 
-  <!-- Debug stuff -->
-  <!--<UsingTask
-      TaskName="SignUnsignedReferences"
-      AssemblyFile="$(SolutionDir)\SignReferences\bin\Debug\SignReferences.exe.task" />-->
-  <UsingTask
-      TaskName="SignUnsignedReferences"
-      AssemblyFile="$(SignReferencesPath)" />
-  <Target
-      Name="SignReferencesTarget"
-      BeforeTargets="CoreCompile"
-      >
-    <SignUnsignedReferences ProjectPath="$(ProjectPath)" SolutionPath="$(SolutionPath)" />
+  <UsingTask TaskName="SignReferencesTask" AssemblyFile="$(SignReferencesPath)" />
+  <Target Name="SignReferencesTarget" BeforeTargets="CoreCompile">
+    <SignReferencesTask ReferencePath="@(ReferencePath)" ReferenceCopyLocalPaths="@(ReferenceCopyLocalPaths)"
+                        AssemblyOriginatorKeyFile="$(AssemblyOriginatorKeyFile)" SignAssembly="$(SignAssembly)" />
   </Target>
 </Project>
 

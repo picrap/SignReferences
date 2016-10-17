@@ -21,7 +21,7 @@
     <developmentDependency>true</developmentDependency>
   </metadata>
   <files>
-    <file src="NuGet\**\*" target="."/>
-    <file src="bin\$ConfigurationName$\SignReferences.dll" target="."/>
+    <file src="NuGet\**\*" target=""/>
+    <file src="bin\$ConfigurationName$\SignReferences.exe" target="build"/>
   </files>
 </package>
